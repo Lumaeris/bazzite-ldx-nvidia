@@ -61,7 +61,7 @@ modules:
     snippets:
       - "echo 'import \"/usr/share/ublue-os/just/95-bazzite-dx.just\"' >> /usr/share/ublue-os/justfile"
       - "dnf5 clean all"
-      - "rm -rf /tmp/*"
-      - "rm -rf /var"
+      - "rm -rf /tmp/* || true"
+      - "rm -rf /var || true"
       - "mkdir -p /var"
       - "bootc container lint || true"
