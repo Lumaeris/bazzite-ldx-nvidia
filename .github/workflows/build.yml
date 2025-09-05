@@ -23,6 +23,8 @@ jobs:
         recipe:
           - plasma.yml
           - gnome.yml
+          # --- ignore the latter recipe, that's for my other repo: https://github.com/Lumaeris/vedaos
+          - vedaos-base.yml
     steps:
       # the build is fully handled by the reusable github action
       - name: Build Custom Image

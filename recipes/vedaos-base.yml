@@ -1,0 +1,15 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+# NOTE: this package acts as a base image for my other repo, that way I can dogfood this properly. open this link if you're interested in it:
+# https://github.com/Lumaeris/vedaos
+name: vedaos-base
+description: This is my personal OS image.
+base-image: ghcr.io/ublue-os/bazzite-gnome-nvidia-open
+image-version: stable-42
+
+modules:
+  - from-file: common.yml
+
+  - type: initramfs
+
+  - type: signing
