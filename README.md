@@ -1,4 +1,6 @@
-# Bazzite with [OpenGamepadUI](https://github.com/ShadowBlip/OpenGamepadUI) [WIP]
+# Bazzite LDX Nvidia
+
+NOTE!!!: This readme was leftover from my other repo, I will rewrite it later.
 
 ## To-do
 
