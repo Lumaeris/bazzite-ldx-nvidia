@@ -1,0 +1,22 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+name: bazzite-ldx-nvidia
+description: This is my personal OS image.
+base-image: ghcr.io/ublue-os/bazzite-nvidia
+image-version: stable-42
+
+modules:
+  - from-file: common.yml
+
+  - type: script
+    snippets:
+      - "sed -i 's|^Website=.*|Website=https://github.com/Lumaeris/bazzite-ldx-nvidia|' /etc/xdg/kcm-about-distrorc"
+      - "sed -i 's/^Variant=.*/Variant=Lighter Developer Experience (NVIDIA)/' /etc/xdg/kcm-about-distrorc"
+
+  - type: os-release
+    properties:
+      VARIANT_ID: bazzite-ldx-nvidia
+
+  - type: initramfs
+
+  - type: signing

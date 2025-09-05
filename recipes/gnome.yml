@@ -1,0 +1,17 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+name: bazzite-ldx-gnome-nvidia
+description: This is my personal OS image.
+base-image: ghcr.io/ublue-os/bazzite-gnome-nvidia
+image-version: stable-42
+
+modules:
+  - from-file: common.yml
+
+  - type: os-release
+    properties:
+      VARIANT_ID: bazzite-ldx-gnome-nvidia
+
+  - type: initramfs
+
+  - type: signing
