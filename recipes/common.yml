@@ -50,12 +50,12 @@ modules:
   - type: systemd
     system:
       enabled:
-        - ublue-user-setup.service
-    user:
-      enabled:
         - docker.socket
         - podman.socket
         - ublue-system-setup.service
+    user:
+      enabled:
+        - ublue-user-setup.service
 
   - type: script
     snippets:
