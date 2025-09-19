@@ -1,36 +1,46 @@
 # Bazzite LDX Nvidia
 
-NOTE!!!: This readme was leftover from my other repo, I will rewrite it later.
+Bazzite Lighter Developer Experience for owners of older NVIDIA cards that ships the exact same packages like original [Bazzite DX](https://dev.bazzite.gg/) does and it doesn't use `bazzite-deck` as a base. Also this repo may be seen as an example of manual convertion from `image-template` by [Universal Blue](https://ublue.it) to [BlueBuild](https://blue-build.org/) environment.
 
-## To-do
+## Included software
 
-* [x] Add a way to switch to desktop mode
-* * "Exit" button acts like "Restart Steam" on Steam Gaming Mode, probably rename that as well.
-* [ ] Change boot animation
-* [x] Somehow add a screen keyboard?
-* * Apparently after selecting the “Steam Deck” controller, it realized it needed to bring up the keyboard. It's not perfect, but it's something at least.
-* [ ] Open the Steam minified UI when opening any Steam game
-* [x] Add a way to automate installing the latest RPMs
-* [ ] Add an ujust script to turn off OGUI in favor of Steam Gaming Mode
-* * [ ] ... and figure out a proper method for switching to Steam Gaming Mode
-
-Note: In my testings InputPlumber takes over the Steam Controller entirely, so it's not ideal for now to use it properly on Desktop mode and switching to Steam Gaming Mode using ujust script, which doesn't exist yet. For now if you rebased and want Steam Gaming Mode back or use desktop mode, you have to rollback to official Bazzite-Deck image for the time being.
+* [Android platform tools](https://developer.android.com/tools) (adb, fastboot)
+* [BPF Compiler Collection](https://github.com/iovisor/bcc) (`bcc`), [bpftop](https://github.com/Netflix/bpftop), [bpftrace](https://github.com/bpftrace/bpftrace)
+* [C/C++ Compiler cache](https://ccache.dev/) (`ccache`)
+* [Docker](https://www.docker.com/) with `docker-compose` and `buildx` plugins
+* [nicstat](https://sourceforge.net/projects/nicstat/)
+* [numactl](https://github.com/numactl/numactl), numa support
+* [Flatpak Builder](https://github.com/flatpak/flatpak-builder)
+* [Podman Machine](https://docs.podman.io/en/latest/markdown/podman-machine.1.html) and [Podman Terminal UI](https://github.com/containers/podman-tui)
+* [Ramalama](https://ramalama.ai/)
+* [rclone](https://rclone.org/)
+* [restic](https://restic.net/)
+* [sysprof](https://www.sysprof.com/)
+* [tiptop](https://team.inria.fr/pacap/software/tiptop/), performance monitoring tool based on hardware counters
+* [QEMU KVM metapackage](https://www.qemu.org/) (for use in virt-manager flatpak after running `ujust setup-virtualization`)
+* [Visual Studio Code](https://code.visualstudio.com/)
+* [usbmuxd](https://www.libimobiledevice.org/), daemon for communicating with iOS devices
+* [Z shell](https://www.zsh.org/)
 
 ## Installation
 
-To rebase an existing Bazzite-Deck installation to the latest build (add `-gnome` before `:latest` if you're using GNOME):
+To rebase an existing Bazzite installation to the latest build (add `-gnome` before `-nvidia` if you're using GNOME):
 
 - First rebase to the unsigned image, to get the proper signing keys and policies installed:
   ```
-  rpm-ostree rebase ostree-unverified-registry:ghcr.io/lumaeris/bazzite-opengamepadui:latest
+  rpm-ostree rebase ostree-unverified-registry:ghcr.io/lumaeris/bazzite-ldx-nvidia:latest
   ```
 - Reboot to complete the rebase:
   ```
   systemctl reboot
   ```
+- Before rebasing to the signed image, if you need to use Docker, execute this script:
+  ```
+  ujust setup-docker
+  ```
 - Then rebase to the signed image, like so:
   ```
-  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/lumaeris/bazzite-opengamepadui:latest
+  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/lumaeris/bazzite-ldx-nvidia:latest
   ```
 - Reboot again to complete the installation
   ```
@@ -44,6 +54,6 @@ The `latest` tag will automatically point to the latest build.
 These images are signed with [Sigstore](https://www.sigstore.dev/)'s [cosign](https://github.com/sigstore/cosign). You can verify the signature by downloading the `cosign.pub` file from this repo and running the following command:
 
 ```bash
-cosign verify --key cosign.pub ghcr.io/lumaeris/bazzite-opengamepadui
-cosign verify --key cosign.pub ghcr.io/lumaeris/bazzite-opengamepadui-gnome
+cosign verify --key cosign.pub ghcr.io/lumaeris/bazzite-ldx-nvidia
+cosign verify --key cosign.pub ghcr.io/lumaeris/bazzite-ldx-gnome-nvidia
 ```
