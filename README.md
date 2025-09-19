@@ -6,6 +6,7 @@ Bazzite Lighter Developer Experience for owners of older NVIDIA cards that ships
 
 * [Android platform tools](https://developer.android.com/tools) (adb, fastboot)
 * [BPF Compiler Collection](https://github.com/iovisor/bcc) (`bcc`), [bpftop](https://github.com/Netflix/bpftop), [bpftrace](https://github.com/bpftrace/bpftrace)
+* [BlueBuild CLI](https://github.com/blue-build/cli)
 * [C/C++ Compiler cache](https://ccache.dev/) (`ccache`)
 * [Docker](https://www.docker.com/) with `docker-compose` and `buildx` plugins
 * [nicstat](https://sourceforge.net/projects/nicstat/)
