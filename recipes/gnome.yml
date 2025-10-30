@@ -3,7 +3,7 @@
 name: bazzite-ldx-gnome-nvidia
 description: This is my personal OS image.
 base-image: ghcr.io/ublue-os/bazzite-gnome-nvidia
-image-version: stable-42
+image-version: stable
 
 modules:
   - from-file: common.yml
