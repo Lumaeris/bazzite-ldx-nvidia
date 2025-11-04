@@ -59,3 +59,4 @@ jobs:
 
           maximize_build_space: false
           squash: true
+          retry_push_count: 3
