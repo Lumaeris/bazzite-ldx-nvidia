@@ -8,6 +8,7 @@ modules:
       copr:
         - ublue-os/packages
     install:
+      install-weak-deps: false
       packages:
         - repo: copr:copr.fedorainfracloud.org:ublue-os:packages
           packages:
