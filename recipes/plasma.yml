@@ -20,6 +20,4 @@ modules:
     properties:
       VARIANT_ID: bazzite-ldx-nvidia
 
-  - type: initramfs
-
   - type: signing

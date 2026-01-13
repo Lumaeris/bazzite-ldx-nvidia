@@ -15,6 +15,4 @@ modules:
     properties:
       VARIANT_ID: bazzite-ldx-gnome-nvidia
 
-  - type: initramfs
-
   - type: signing
