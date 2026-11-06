@@ -39,3 +39,4 @@ jobs:
           maximize_build_space: true
           squash: true
           retry_push_count: 3
+          cli_version: v0.9.41
